@@ -15,6 +15,7 @@ body{
     font-size: 34px;
     font-family: 'roboto';
     font-weight: 400;
+
 }
 .sectiontittle{
     margin-top: 67px;
@@ -45,4 +46,24 @@ body{
 .films img{
     height: 193px;
     width: auto;
+}
+
+h2{
+    font-size: 20px;
+    color: #293845;
+
+}
+.sessions{
+    font-family: 'roboto';
+    margin-left: 25px;
+}
+.times{
+    background-color:#E8833A ;
+    color: #fff;
+    width: 82px;
+    height: 43px;
+    font-size: 18px;
+    margin: 23px 8px 23px 0;
+    border:none;
+    border-radius: 3px;
 }
