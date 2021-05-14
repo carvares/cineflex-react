@@ -1,5 +1,6 @@
 body{
-    background-color: #e5e5e5;
+    background-color: #fff;
+    font-family: 'roboto';
 }
 .topbar{
     background-color: #c3cfd9;
@@ -13,7 +14,6 @@ body{
     top: 0;
     height: 67px;
     font-size: 34px;
-    font-family: 'roboto';
     font-weight: 400;
 
 }
@@ -23,7 +23,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'roboto';
     font-size: 24px;
     color: #293845;
 }
@@ -34,8 +33,6 @@ body{
 }
 .films{
     margin-bottom: 12px;
-    width: 145px;
-    height: 209px;
     background-color: #fff;
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
@@ -43,8 +40,21 @@ body{
     justify-content: center;
     align-items: center;
 }
-.films img{
+.big img{
     height: 193px;
+    width: auto;
+}
+.big{
+    width: 145px;
+    height: 209px;
+}
+.small{
+    width: 64px;
+    height: 89px;
+    margin: 15px 10px 15px 10px;
+}
+.small img{
+    height: 72px;
     width: auto;
 }
 
@@ -53,8 +63,16 @@ h2{
     color: #293845;
 
 }
+h3{
+    font-size: 26px;
+    color:#293845;
+}
+h4{
+    font-size: 18px;
+    color: #293845;
+    margin-bottom: 5px;
+}
 .sessions{
-    font-family: 'roboto';
     margin-left: 25px;
 }
 .times{
@@ -66,4 +84,84 @@ h2{
     margin: 23px 8px 23px 0;
     border:none;
     border-radius: 3px;
+    cursor: pointer;
+}
+.times:hover{
+    background-color:rgba(146,85, 49, 1);
+}
+.bottombar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 117px;
+    background-color: #DFE6ED;
+    display: flex;
+    align-items: center;
+    border-top: 1px inset;
+}
+.chairs{
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.seat{
+    width: 26px;
+    height: 26px;
+    
+    margin: 9px 4px 9px 4px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+.available{
+    background-color: #c3cfd9;
+    border: 1px solid #808f9d;
+}
+.ocupy{
+    background-color: #FBE192;
+    border: 1px solid #F7C52B;
+}
+.chairslegend{
+    width: 350px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.chairslegend div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selected{
+    background-color: #8DD7CF;
+    border: 1px solid #1AAE9E;
+}
+input{
+    width: 327px;
+    height: 51px;
+    border: 1px solid #d5d5d5;
+    font-size: 18px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+.inputs{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+}
+.inputs button{
+    width: 225px; 
+    height: 42px;
+    background-color: #e8833a;
+    color: #fff;
+    border-radius: 3px;
+    border:none;
+    margin: 50px auto 0 auto ;
 }

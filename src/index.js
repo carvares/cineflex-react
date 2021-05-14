@@ -5,6 +5,7 @@ import Filmlist from './filmlist'
 import Timelist from './timelist'
 import './styles/reset.css'
 import './styles/styles.css'
+import RenderChairs from './chairs';
 
 
 function App(){
@@ -17,6 +18,9 @@ return(
             </Route>
             <Route path="/sessoes/:idFilme" exact>
             <Timelist/>
+            </Route>
+            <Route path="/assentos/:idSessao" exact>
+                <RenderChairs />
             </Route>
         </Switch>
     </BrowserRouter>

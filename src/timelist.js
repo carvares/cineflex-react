@@ -1,42 +1,65 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 export default function Timelist(){
+    
     const {idFilme} = useParams()
-    console.log(idFilme)
+
+
     const [sessions, setSessions] = useState([])
     useEffect(()=>{
         const requisition = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilme}/showtimes`)
         requisition.then(promise=> {
-            setSessions(promise.data.days);
+            setSessions(promise.data);
+
             console.log(sessions);
         })
     },[]);
-    
-    
-    
-    if(sessions === []){
+   
+    const {days, posterURL, title} = sessions
+
+    if(days !== undefined && days !== []){
         return(
-            <h2>Carregando...</h2>
-        )
-    } else{
-    return(
+            
         <>
             <div className = "sectiontittle">
                 <h1>Selecione o horário</h1>
             </div>
             <div className = "sessions">
-                {sessions.map((hours)=> 
+                {days.map((hours)=> 
+                
                 <>
-                    <h2 key = {hours.id} id = {hours.id}>{hours.weekday} - {hours.date}</h2>
+                
+                    <h2 key = {hours.id} id = {hours.id}> {hours.weekday} - {hours.date}</h2>
                     {hours.showtimes.map(times => 
-                    <button key = {times.id} className = "times" id = {times.id}>{times.name}</button>
+                    <Link to={`/assentos/${times.id}`}><button key = {times.id} className = "times" id = {times.id}>{times.name}</button></Link>
                         )}
                     
                   </>  
                  )}
+                 <div className="bottombar">
+                     <div className = "films small">
+                     <img src={posterURL}></img>
+                    
+                     </div>
+                     <h3>{title}</h3>
+                     </div>
             </div>
         </>
-    )}
+    )
+
+    } else {
+
+        
+
+    return(
+        <>
+            <h1>carregando...</h1>
+            </>
+    )
+        
+}
+
+    console.log(sessions)
 }

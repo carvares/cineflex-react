@@ -13,6 +13,11 @@ export default function Filmlist(){
         setFilms(promise.data);
     })
 },[]);
+    if(films ===[]){
+        return(
+            <h2>carregando...</h2>
+        )
+    } else{
     return (
         <>
             <div className = "sectiontittle">
@@ -20,7 +25,7 @@ export default function Filmlist(){
                 </div>
             <div className = "filmslist">
             {films.map((banners) =>
-            <Link to={`/sessoes/${banners.id}`}><div className = "films" id = {banners.id}>
+            <Link to={`/sessoes/${banners.id}`}><div className = "films big" id = {banners.id}>
                 <img src={banners.posterURL} alt={banners.title}></img>
             </div></Link>
         
@@ -28,5 +33,6 @@ export default function Filmlist(){
         </div>
         </> 
         );
+    }
 
 }
