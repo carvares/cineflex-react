@@ -40,7 +40,7 @@ export default function Timelist(){
                  )}
                  <div className="bottombar">
                      <div className = "films small">
-                     <img src={posterURL}></img>
+                     <img src={posterURL} alt={title}></img>
                     
                      </div>
                      <h3>{title}</h3>
@@ -60,6 +60,4 @@ export default function Timelist(){
     )
         
 }
-
-    console.log(sessions)
 }

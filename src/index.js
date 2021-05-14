@@ -6,9 +6,13 @@ import Timelist from './timelist'
 import './styles/reset.css'
 import './styles/styles.css'
 import RenderChairs from './chairs';
+import Endorder from './endorder';
+import { useState } from 'react';
 
 
 function App(){
+    const [sucess, setSucess] = useState([])
+
 return(
     <BrowserRouter>
         <Topbar/>   
@@ -20,7 +24,11 @@ return(
             <Timelist/>
             </Route>
             <Route path="/assentos/:idSessao" exact>
-                <RenderChairs />
+                <RenderChairs setSucess={setSucess}/>
+            </Route>
+            <Route path="/sucesso">
+                {console.log(sucess)}
+                <Endorder sucess={sucess}/>
             </Route>
         </Switch>
     </BrowserRouter>

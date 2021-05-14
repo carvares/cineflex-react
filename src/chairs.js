@@ -1,10 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import SelectSeats from './selectseats'
 import RenderSeats from './renderchairs'
+import {Link} from "react-router-dom";
 
-export default function RenderChairs(){
+export default function RenderChairs({sucess, setSucess}){
+    
+
+    
     const [buyerName, setBuyerName] = useState("")
     const [buyerCPF, setBuyerCPF] = useState("")
     const [chairSelected, setChairSelected] = useState([]);
@@ -17,12 +20,16 @@ export default function RenderChairs(){
         requisition.then(promise =>{
             setChairs(promise.data);
         })
-    },[])
+    },[idSessao])
 
     const {seats, name, day, movie} = chairs
     
 
     if(seats !== undefined && seats !== []){
+
+
+        //setSucess({movie,day,name,buyerName,buyerCPF,chairSelected});
+
     return(
         <>
         <div className = "sectiontittle">
@@ -56,12 +63,12 @@ export default function RenderChairs(){
             <input placeholder="Digite seu nome..." onChange={(event) => setBuyerName(event.target.value)}></input>
             <h4>CPF do comprador:</h4>
             <input placeholder="Digite seu CPF..." onChange={(event) => setBuyerCPF(event.target.value)}></input>
-            <button>Reservar assento(s)</button>
+            <Link to="/sucesso"><button onClick={()=> setSucess({movie,day,name,buyerName,buyerCPF,chairSelected,seats})}>Reservar assento(s)</button></Link>
             </div>
             
             <div className="bottombar">
                      <div className = "films small">
-                     <img src={movie.posterURL}></img>
+                     <img src={movie.posterURL} alt={movie.title}></img>
                     
                      </div>
                      <h3>{movie.title}
@@ -70,12 +77,14 @@ export default function RenderChairs(){
         
         </div>
         </>
+        
     )
 } else {
     return(
         <h3>carregando...</h3>
     )
 }
+    
 
 
 }

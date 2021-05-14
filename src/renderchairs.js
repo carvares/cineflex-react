@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import SelectSeats from './selectseats'
 
 export default function RenderSeats(props){
-    console.log(props.id)
     const {chairSelected, setChairSelected} = props
     const[selected, setSelected] = useState("")
     
@@ -21,7 +20,7 @@ export default function RenderSeats(props){
 
     return(
         
-        <div onClick={() => SelectSeats(props.id,chairSelected,setChairSelected,selected, setSelected)} className = {selected}>{props.name}</div>
+        <div onClick={selected === "seat ocupy"?  ()=> "":() => SelectSeats(props.id,chairSelected,setChairSelected,selected, setSelected)} className = {selected}>{props.name}</div>
         )
 
 }

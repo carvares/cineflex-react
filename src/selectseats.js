@@ -13,6 +13,4 @@ export default function SelectSeats(id,chairSelected,setChairSelected, selected,
         setChairSelected(arr)
         setSelected("seat available")
     }
-console.log(chairSelected);
-console.log(index);
 }
